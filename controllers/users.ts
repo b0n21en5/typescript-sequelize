@@ -1,9 +1,14 @@
 const UserServices = require("../services/users");
+import { Request, Response } from "express";
 
-const fetchAllUsers = async () => {
+const fetchAllUsers = async (req: Request, res: Response) => {
   const allUsers = await UserServices.getAllUsers();
-
-  return allUsers;
+  return res.json(allUsers);
 };
 
-module.exports = { fetchAllUsers };
+const fetchUserDetails = async (req: Request, res: Response) => {
+  const user = await UserServices.getUserDetails(req.params);
+  return res.json(user);
+};
+
+module.exports = { fetchAllUsers, fetchUserDetails };
