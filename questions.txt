@@ -1,2 +1,0 @@
-1. can we use both commonJS or es6 together or we should use one in express application
-2. 

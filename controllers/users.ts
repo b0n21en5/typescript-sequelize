@@ -1,14 +1,29 @@
-const UserServices = require("../services/users");
+import {
+  destroyUser,
+  getAllUsers,
+  getUserDetails,
+  updateUser,
+} from "../services/users";
 import { Request, Response } from "express";
 
-const fetchAllUsers = async (req: Request, res: Response) => {
-  const allUsers = await UserServices.getAllUsers();
+export const fetchAllUsers = async (req: Request, res: Response) => {
+  const allUsers = await getAllUsers();
   return res.json(allUsers);
 };
 
-const fetchUserDetails = async (req: Request, res: Response) => {
-  const user = await UserServices.getUserDetails(req.params);
+export const fetchUserDetails = async (req: Request, res: Response) => {
+  const user = await getUserDetails({ uid: req.params.uid });
   return res.json(user);
 };
 
-module.exports = { fetchAllUsers, fetchUserDetails };
+export const deleteUser = async (req: Request, res: Response) => {
+  const message = await destroyUser({ uid: req.params.uid });
+
+  return res.json(message);
+};
+
+export const updateUserController = async (req: Request, res: Response) => {
+  const updatedUser = await updateUser(req);
+
+  return res.json(updateUser);
+};
