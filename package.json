@@ -2,9 +2,9 @@
   "name": "sqlze",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "server.ts",
   "scripts": {
-    "dev": "tsnd --respawn index.ts"
+    "dev": "tsnd --respawn server.ts"
   },
   "keywords": [],
   "author": "",

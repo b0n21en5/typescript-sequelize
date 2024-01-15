@@ -1,6 +1,5 @@
 "use strict";
-import { Model } from "sequelize";
-
+import {  Model } from "sequelize";
 interface ProjectAttributes {
   id: number;
   title: string;
